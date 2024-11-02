@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Ballon d'Or - Football Élite</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>IANICK4REAL QUIZZ FOOT</h1>
+    <div id="name-entry">
+      <input type="text" id="playerName" placeholder="Entrez votre nom" autocomplete="off">
+      <button onclick="startQuiz()">Commencer le quiz</button>
+    </div>
+
+    <!-- Message d'avertissement stylisé et animé -->
+    <div id="warningMessage">
+      ⚠️ Quitter la page = Disqualification !
+    </div>
+
+    <!-- Zone pour le message de disqualification -->
+    <div id="disqualificationMessage" style="display: none; color: red; font-weight: bold; text-align: center; margin-top: 20px;">
+      Vous avez été disqualifié pour avoir quitté la page pendant le temps de réponse.
+    </div>
+
+    <div id="quiz" style="display: none;">
+      <div id="question-container">
+        <p id="question">La question apparaîtra ici</p>
+      </div>
+      <p id="timer">Temps restant : <span id="time">15</span> secondes</p>
+      <input type="text" id="answer" placeholder="Votre réponse ici" autocomplete="off">
+      <button id="submitBtn" onclick="submitAnswer()">Valider la réponse</button>
+      
+      <!-- Zone pour le message de confirmation de réponse -->
+      <div id="confirmationMessage" style="display: none;">
+        Votre réponse a bien été prise en compte !
+      </div>
+      
+      <p id="nextQuestionTimer" style="display: none; color: #FFD700; font-weight: bold;"></p>
+    </div>
+
+    <!-- Bouton pour afficher/masquer la section Admin -->
+    <button id="toggleAdmin" onclick="toggleAdminSection()">Accès Admin</button>
+
+    <!-- Section Admin cachée par défaut, visible à droite de l'écran -->
+    <div id="admin-section" class="admin-section" style="display: none;">
+      <h3>Section Admin</h3>
+      <div id="admin-login">
+        <input type="text" id="adminID" placeholder="Identifiant admin">
+        <input type="password" id="adminPassword" placeholder="Mot de passe admin">
+        <button onclick="showAdminContent()">Voir les scores</button>
+      </div>
+      <div id="scoreboard-container" style="display: none;">
+        <button onclick="clearScoreboard()" class="admin-button">Effacer la liste</button>
+        <table id="scoreboardTable">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Score</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody id="scoreboard"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>
